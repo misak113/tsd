@@ -111,12 +111,12 @@ export function mkdirCheckSync(dir: string, writable: boolean = false): string {
 			throw new Error('path exists but is not a directory ' + dir);
 		}
 		if (writable) {
-			fs.chmodSync(dir, '744');
+			fs.chmodSync(dir, '774');
 		}
 	}
 	else {
 		if (writable) {
-			mkdirp.sync(dir, '744');
+			mkdirp.sync(dir, '774');
 		}
 		else {
 			mkdirp.sync(dir);
@@ -140,12 +140,12 @@ export function mkdirCheck(dir: string, writable: boolean = false): Promise<stri
 					throw (new Error('path exists but is not a directory ' + dir));
 				}
 				if (writable) {
-					return chmod(dir, '744');
+					return chmod(dir, '774');
 				}
 			});
 		}
 		else if (writable) {
-			return mkdirpP(dir, '744');
+			return mkdirpP(dir, '774');
 		}
 		else {
 			return mkdirpP(dir);
